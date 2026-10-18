@@ -1,0 +1,164 @@
+/* ============================================================
+   contact.css — Contact page styles (builds on base.css)
+   ============================================================ */
+
+/* ---------- Page hero ---------- */
+.page-hero {
+  padding: calc(var(--header-h) + 64px) 0 60px;
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(232, 201, 138, 0.5), transparent 62%),
+    var(--bg);
+}
+[data-theme="dark"] .page-hero {
+  background:
+    radial-gradient(900px 420px at 78% 10%, rgba(217, 184, 119, 0.12), transparent 62%),
+    var(--bg);
+}
+.page-hero h1 { max-width: 16ch; margin: 14px 0 18px; }
+.page-hero .lead { max-width: 56ch; }
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.breadcrumb a { color: var(--brown); font-weight: 500; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ---------- Layout ---------- */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(30px, 5vw, 60px);
+  align-items: start;
+}
+.contact-info h2 { margin-bottom: 12px; }
+.contact-info > p { margin-bottom: 28px; }
+
+.info-list { display: grid; gap: 22px; margin-bottom: 32px; }
+.info-list li { display: flex; gap: 16px; align-items: flex-start; }
+.info-list .icon-badge { flex-shrink: 0; }
+.info-list strong {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.info-list a, .info-list span { color: var(--text); font-weight: 500; }
+.info-list a:hover { color: var(--brown); }
+
+.contact-social {
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.contact-social > span {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+/* ---------- Form ---------- */
+.contact-form-wrap { padding: clamp(28px, 4vw, 42px); }
+.contact-form-wrap h2 { margin-bottom: 8px; }
+.contact-form-wrap > p { margin-bottom: 26px; font-size: 0.92rem; }
+.contact-form { display: grid; gap: 20px; }
+
+.field { display: grid; gap: 8px; }
+.field label { font-weight: 600; font-size: 0.92rem; }
+.field label span { color: var(--brown); }
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    background 0.25s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 130px; }
+.field input::placeholder,
+.field textarea::placeholder { color: var(--text-muted); opacity: 0.7; }
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--brown);
+  box-shadow: 0 0 0 4px rgba(139, 90, 43, 0.12);
+}
+
+.field .error {
+  color: #b3261e;
+  font-size: 0.82rem;
+  min-height: 0;
+}
+[data-theme="dark"] .field .error { color: #f2a99f; }
+
+.field.has-error input,
+.field.has-error textarea {
+  border-color: #b3261e;
+  box-shadow: 0 0 0 4px rgba(179, 38, 30, 0.1);
+}
+.field.is-valid input,
+.field.is-valid textarea { border-color: #4c7a34; }
+
+.contact-form .btn { justify-self: start; }
+
+.form-success {
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+  background: rgba(76, 122, 52, 0.12);
+  border: 1px solid rgba(76, 122, 52, 0.35);
+  color: #3f6a2b;
+  font-weight: 500;
+}
+[data-theme="dark"] .form-success { color: #a9d78f; }
+
+/* ---------- Map ---------- */
+.section--tight { padding-top: 0; }
+.map-card {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  line-height: 0;
+}
+.map-card img { width: 100%; height: clamp(280px, 42vw, 440px); object-fit: cover; }
+.map-pin {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  line-height: 1.35;
+}
+.map-pin-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--brown);
+  box-shadow: 0 0 0 6px rgba(139, 90, 43, 0.2);
+  flex-shrink: 0;
+}
+.map-pin strong { display: block; font-size: 0.95rem; }
+.map-pin span { font-size: 0.82rem; color: var(--text-muted); }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .contact-layout { grid-template-columns: 1fr; }
+}
